@@ -91,14 +91,14 @@ ORDER BY 1;
 
 
 -- Total Population vs Vaccinations 
-WITH	populationVSvaccination AS (SELECT dea.continent, dea.location, dea.covid_date, dea.population, vac.new_vaccinations, 		-- Running sum of total vaccinations by day
+WITH populationVSvaccination AS (SELECT dea.continent, dea.location, dea.covid_date, dea.population, vac.new_vaccinations, 		-- Running sum of total vaccinations by day
 				SUM(new_vaccinations) OVER (PARTITION BY dea.location ORDER BY dea.covid_date) running_total_vaccinations
 				FROM coviddeaths dea
 				JOIN covidvaccinations vac
 					ON dea.location = vac.location AND dea.covid_date = vac.covid_date
 				WHERE dea.continent IS NOT NULL 
 				ORDER BY 2, 3), 
-		total_doses_by_country AS (SELECT location, population, MAX(running_total_vaccinations) total_doses_given		-- Total vaccine doses administered in each country 
+	 total_doses_by_country AS (SELECT location, population, MAX(running_total_vaccinations) total_doses_given		-- Total vaccine doses administered in each country 
 				FROM populationVSvaccination
 				GROUP BY 1, 2
 				ORDER BY 3 DESC)
