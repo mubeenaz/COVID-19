@@ -8,9 +8,9 @@ Its clear that you don't have to go too far to see the effects of COVID-19 (also
 
 ## Repository Contents 
 
-`CSV Files/`: contains two tables which were derived from the original data source and used to create the database 
+`CSV Files`: contains two tables which were derived from the original data source and used to create the database 
 
-`Excel Files/`: contains all tables which were used to create the dashboard and an edited version of the original data source 
+`Excel Files`: contains all tables which were used to create the dashboard and an edited version of the original data source 
 
 `Covid-19 Project Documentation`: outlines step-by-step procedure of the entire project 
 
